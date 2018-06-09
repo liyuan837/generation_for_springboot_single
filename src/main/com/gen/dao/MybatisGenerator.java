@@ -1,6 +1,8 @@
 package com.gen.dao;
 
 import com.gen.conf.Config;
+import com.gen.dao.annotation.EqualLengthGenerator;
+import com.gen.dao.annotation.EqualLengthValidatorGenerator;
 import com.gen.dao.annotation.NotTokenGenerator;
 import com.gen.dao.attach.JwtControllerGenerator;
 import com.gen.dao.attach.RedisControllerGenerator;
@@ -60,7 +62,7 @@ public class MybatisGenerator {
 		//[10]生成CopyUtil.java
 		writeFile(Config.basePackagePath+"util/","CopyUtil.java",new CopyUtilGenerator().generate());
 
-		//[11]生成DateCopyUtil.java
+		//[11]生成DateUtil.java
 		writeFile(Config.basePackagePath+"util/","DateUtil.java",new DateUtilGenerator().generate());
 
 		//[12]生成JSONUtil.java
@@ -107,9 +109,15 @@ public class MybatisGenerator {
 		writeFile(Config.servicePath,"RedisService.java",new RedisServiceGenerator().generate());
 		writeFile(Config.controllerPath,"RedisController.java",new RedisControllerGenerator().generate());
 
-		//[23]生成测试页面
+		//[23]生成HTML测试页面
 		writeFile(Config.htmlResourcePath,"multiUpload.html",new UploadHtmlGenerator().generate());
 		writeFile(Config.htmlResourcePath,"multiDownload.html",new DownloadHtmlGenerator().generate());
+
+		//[24]生成自定义规则校验注解:EqualLength + EqualLengthValidator + ValidUtil
+		writeFile(Config.basePackagePath + "annotation/equallength/","EqualLengthValidator.java",new EqualLengthValidatorGenerator().generate());
+		writeFile(Config.basePackagePath + "annotation/equallength/","EqualLength.java",new EqualLengthGenerator().generate());
+		writeFile(Config.basePackagePath + "util/","ValidUtil.java",new ValidUtilGenerator().generate());
+
 
 	}
 
