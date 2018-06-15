@@ -32,17 +32,18 @@ public class JwtControllerGenerator {
                         "        \"（除添加@NotToken注解）都是被JwtInterceptor拦截的，用来进行登录验证测试\")\n" +
                         "public class JwtController extends BaseController{\n" +
                         "\n" +
-                        "    //模拟登陆成功，返回token\n" +
+                       "//模拟登陆成功，返回token\n" +
                         "    @ApiOperation(value = \"登录\",notes = \"登录\",httpMethod = \"POST\")\n" +
                         "    @NotToken\n" +
                         "    @RequestMapping(value = \"/login\",method = RequestMethod.POST)\n" +
-                        "    public String login(){\n" +
+                        "    public ResponseEntity login(){\n" +
                         "        JwtUser jwtUser = new JwtUser();\n" +
                         "        jwtUser.setUsername(\"李袁\");\n" +
                         "        jwtUser.setUsercode(\"A0001\");\n" +
                         "\n" +
-                        "        return JwtUtil.generateToken(jwtUser);\n" +
-                        "    }\n" +
+                        "        String token = JwtUtil.generateToken(jwtUser);\n" +
+                        "        return getSuccessResult(token);\n" +
+                        "    }"+
                         "\n" +
                         "    //模拟携带token的请求解析\n" +
                         "    @ApiOperation(value = \"解析登录用户数据\",notes = \"解析登录用户数据\",httpMethod = \"POST\")\n" +
