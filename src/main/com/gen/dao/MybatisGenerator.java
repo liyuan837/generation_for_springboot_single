@@ -4,10 +4,7 @@ import com.gen.conf.Config;
 import com.gen.dao.annotation.EqualLengthGenerator;
 import com.gen.dao.annotation.EqualLengthValidatorGenerator;
 import com.gen.dao.annotation.NotTokenGenerator;
-import com.gen.dao.attach.JwtControllerGenerator;
-import com.gen.dao.attach.RedisControllerGenerator;
-import com.gen.dao.attach.RedisServiceGenerator;
-import com.gen.dao.attach.UtilControllerGenerator;
+import com.gen.dao.attach.*;
 import com.gen.dao.common.*;
 import com.gen.dao.config.MyBatisConfigurationGenerator;
 import com.gen.dao.config.Swagger2Generator;
@@ -118,7 +115,8 @@ public class MybatisGenerator {
 		writeFile(Config.basePackagePath + "annotation/equallength/","EqualLength.java",new EqualLengthGenerator().generate());
 		writeFile(Config.basePackagePath + "util/","ValidUtil.java",new ValidUtilGenerator().generate());
 
-
+		//[25]生成定时器示例类
+		writeFile(Config.servicePath , "ScheduleTask.java",new ScheduleTaskGenerator().generate());
 	}
 
 
