@@ -103,7 +103,6 @@ public class MainPomGenerator {
                 "\t\t<dependency>\n" +
                 "\t\t\t<groupId>org.springframework.data</groupId>\n" +
                 "\t\t\t<artifactId>spring-data-commons</artifactId>\n" +
-                "\t\t\t<version>2.0.6.RELEASE</version>\n" +
                 "\t\t</dependency>\n" +
                 "\n" +
                 "\t\t<dependency>\n" +

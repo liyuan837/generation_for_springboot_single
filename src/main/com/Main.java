@@ -7,7 +7,7 @@ public class Main {
 		MybatisGenerator generator = new MybatisGenerator();
 
 		String[] maps = {
-			"tb_property"
+			"hero"
 		};
 
 		// [0]生成基类和工具类

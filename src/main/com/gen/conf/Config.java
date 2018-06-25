@@ -10,12 +10,12 @@ public interface Config {
     /**
      * 项目名称
      */
-    String projectName = "demo";
+    String projectName = "spring-cloud-consumer";
 
     /**
      * 数据库名称
      */
-    String dbName = "king_glory_db";
+    String dbName = "leolderdb";
 
     /**
      * groupId:
